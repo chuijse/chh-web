@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+
+import { Router } from "@reach/router";
+
+import Home from "./Pages/Home";
+import Work from "./Pages/Work";
+import Teaching from "./Pages/Teaching";
+import About from "./Pages/About";
+import Blog from "./Pages/Blog";
+import Contact from "./Pages/Contact";
+
+import TopBar from "./Components/TopBar";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <TopBar></TopBar>
+      <Router>
+        <Home path="/" />
+        <Work path="Work" />
+        <Teaching path="Teaching" />
+        <About path="About" />
+        <Blog path="Blog" />
+        <Contact path="Contact" />
+      </Router>
+    </>
   );
 }
 
