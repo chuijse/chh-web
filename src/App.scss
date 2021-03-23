@@ -3,31 +3,57 @@
 $Primary: #3333;
 $colorGray: #808080;
 
-.topBar {
-  width: 90%;
-  margin: auto;
-}
-
 .line {
   border-bottom: 2px solid $colorGray;
-  width: 100%;
+  width: 90%;
+  margin: auto;
   height: 20px;
 }
+.triangle {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 20px 12.5px 0 12.5px;
+  border-color: $colorGray transparent transparent transparent;
+  transition: margin-left 1s ease-in-out;
+  animation: fadeIn ease 1s;
+}
 
-.bar {
-  display: flex;
-  justify-content: space-between;
-  .logo {
-    margin-top: 15px;
-    display: flex;
-    img {
-      padding-right: 12px;
-    }
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 
+.navLogo {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-right: 5%;
+  margin-left: 5%;
+}
+
+.logo {
+  margin-top: -5px;
+  img {
+    padding-right: 12px;
+  }
+}
+
+.by {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid red;
+}
+
 nav {
-  margin-top: 15px;
   ul {
     padding: 0px;
     margin: 0px;
