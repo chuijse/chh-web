@@ -1,0 +1,12 @@
+@import "../abstract/color";
+
+.arrow {
+  width: 100%;
+  //border: 1px solid green;
+  fill: orange;
+  &:hover {
+    //border: 1px solid red;
+    fill: $colorPrimary;
+    color: $colorPrimary;
+  }
+}

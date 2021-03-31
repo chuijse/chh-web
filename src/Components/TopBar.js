@@ -1,12 +1,13 @@
 import React from "react";
 import Nav from "./Nav";
-import "../App.scss";
 
 const TopBar = () => {
   return (
     <>
-      <div className="line" />
-      <Nav />
+      <div className="topBar">
+        <div className="line" />
+        <Nav />
+      </div>
     </>
   );
 };

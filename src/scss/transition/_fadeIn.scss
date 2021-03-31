@@ -1,0 +1,22 @@
+.visible {
+  opacity: 1;
+  display: block;
+  animation: TransitionFadeIn 3s ease-out;
+  border: 1px dotted red;
+}
+
+@keyframes TransitionFadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.hidden {
+  opacity: 0;
+
+  pointer-events: none;
+}

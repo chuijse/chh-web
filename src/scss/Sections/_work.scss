@@ -1,0 +1,17 @@
+@import "../components/hola";
+@import "../components/arrow";
+@import "../transition/fadeIn.scss";
+@import "../components/fonts";
+
+.workIntro {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .layout {
+    max-width: 1300px;
+    background-color: white;
+  }
+}

@@ -1,0 +1,55 @@
+@import "../components/trianlge.scss";
+@import "../abstract/color";
+
+.topBar {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+}
+
+.line {
+  width: 90%;
+  margin-top: 20px;
+  margin-left: 5%;
+  height: 2px;
+  background: $colorGray;
+}
+
+.navLogo {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-right: 5%;
+  margin-left: 5%;
+}
+
+.logo {
+  margin-top: -5px;
+  img {
+    padding-right: 12px;
+  }
+}
+
+nav {
+  ul {
+    padding: 0px;
+    margin: 0px;
+
+    li {
+      display: inline-block;
+      padding-left: 10px;
+      font-family: "Share Tech Mono", monospace;
+      font-size: 1.5rem;
+      color: $colorGray;
+
+      .navlink {
+        text-decoration: none;
+        text-transform: uppercase;
+        font-family: "Share Tech Mono", monospace;
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
