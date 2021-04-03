@@ -37,7 +37,7 @@ const TextHola = () => {
   return (
     <>
       <motion.div>
-        <motion.span
+        <motion.p
           initial="initial"
           animate="animate"
           variants={container}
@@ -49,7 +49,7 @@ const TextHola = () => {
           <motion.span variants={item} className="textYellow">
             !
           </motion.span>
-        </motion.span>
+        </motion.p>
       </motion.div>
     </>
   );

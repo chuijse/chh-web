@@ -30,11 +30,12 @@ const TextHola = () => {
   };
 
   const item = {
-    initial: { y: 200, scale: 1, opacity: 0 },
+    initial: { y: 0, scale: 1, opacity: 0 },
     animate: {
       opacity: 1,
       y: 0,
       scale: 1,
+      transition: { transition, ...transition },
     },
   };
 

@@ -53,15 +53,15 @@ const Nav = () => {
             <li>
               <div ref={inputRef1}>
                 <NavLink to="/" onActive={() => setPosition(inputRef1)}>
-                  Work
+                  About
                 </NavLink>
               </div>
             </li>
             <li> | </li>
             <li>
               <div ref={inputRef2}>
-                <NavLink to="/About" onActive={() => setPosition(inputRef2)}>
-                  About
+                <NavLink to="/Projects" onActive={() => setPosition(inputRef2)}>
+                  Projects
                 </NavLink>
               </div>
             </li>
