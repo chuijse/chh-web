@@ -1,0 +1,38 @@
+@use "./card";
+@import "../abstract/color";
+
+.cardBigBackground {
+  grid-column: auto / span 2;
+  grid-row: auto / span 2;
+  display: flex;
+  background: rgba(0, 0, 0, 0.2);
+  background-image: url("https://cafdigitalmanufacturing.com/wp-content/uploads/2018/09/foto-3caf.jpg");
+  background-blend-mode: multiply;
+  background-size: auto;
+  background-position: center;
+  background-size: cover;
+  min-height: 800px;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+
+  .whiteCard {
+    @include card.card;
+    width: 400px;
+    height: 400px;
+    background-color: $colorWhite;
+    .cardTitle {
+      color: $colorBlack;
+    }
+    .cardBackground {
+      .cardAbstract {
+        background-color: $colorWhite;
+        color: $colorBlack;
+      }
+    }
+    .cardCategory {
+      color: $colorBlack;
+    }
+  }
+}

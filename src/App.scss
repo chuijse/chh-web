@@ -1,5 +1,8 @@
-@import "./scss/Sections/About.scss";
-@import "./scss/Sections/appbar.scss";
+@import "./scss/Sections/About";
+@import "./scss/Sections/appbar";
+@import "./scss/Sections/blog";
+@import "./scss/Sections/teaching";
+@import "./scss/Sections/courses";
 
 body {
   overflow-y: scroll; /* Show vertical scrollbar */

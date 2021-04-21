@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import Hola from "../Components/Work/Hola";
-import Arrow from "../Components/Work/Arrow";
-import IntroText from "../Components/Work/IntroText";
-import TextoAnimado from "../Components/Work/TextoAnimado";
+import Hola from "../Components/About/Hola";
+import Arrow from "../Components/About/Arrow";
+import IntroText from "../Components/About/IntroText";
+import TextoAnimado from "../Components/About/TextoAnimado";
 import { motion } from "framer-motion";
 
 const Works = () => {
@@ -13,7 +13,7 @@ const Works = () => {
   }, []);
 
   return (
-    <>
+    <motion.div exit={{ opacity: 0 }}>
       <div className="workIntro">
         <div className="layout">
           <Hola />
@@ -21,11 +21,11 @@ const Works = () => {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 7 }}
+            transition={{ delay: 7, duration: 1 }}
           >
             <motion.div
-              initial={{ y: 0 }}
-              animate={{ y: 50 }}
+              initial={{ y: 50 }}
+              animate={{ y: 0 }}
               transition={{
                 duration: 1,
                 repeat: Infinity,
@@ -37,7 +37,7 @@ const Works = () => {
           </motion.div>
         </div>
       </div>
-    </>
+    </motion.div>
   );
 };
 

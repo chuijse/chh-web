@@ -1,49 +1,88 @@
-import React, { useRef, useState } from "react";
-
-import Box from "../Components/Triangle";
+import React, { useRef, useState, useEffect } from "react";
+import sanityClient from "../client";
+import { Link } from "react-router-dom";
+import imageUrlBuilder from "@sanity/image-url";
+import Card from "../Components/Card";
+import CardGrande from "../Components/CardGrande";
+import { motion } from "framer-motion";
 
 const Blog = () => {
-  const inputRef1 = useRef(null);
-  const inputRef2 = useRef(null);
-  const inputRef3 = useRef(null);
+  const [postData, setPost] = useState(null);
 
-  const [postion, setposition] = useState(inputRef1);
+  useEffect(() => {
+    sanityClient
+      .fetch(
+        `*[_type == "post"]{
+          title,
+          slug,
+          mainImage{
+            asset->{
+              _id,
+              url
+            },
+            alt
+          }
+      }`
+      )
+      .then((data) => setPost(data))
+      .catch(console.error);
+  }, []);
+
+  //if (!postData) return <div>Loading...</div>;
 
   return (
-    <>
-      <div style={{ display: "flex", flexDirection: "row" }}>
-        <div
-          className="blog"
-          ref={inputRef1}
-          style={{ width: 100, height: 200, background: "#111111" }}
-          onClick={() => setposition(inputRef1)}
-        ></div>
-        <div
-          className="blog"
-          ref={inputRef2}
-          style={{
-            width: 100,
-            height: 200,
-            background: "#222222",
-            marginLeft: 150,
-          }}
-          onClick={() => setposition(inputRef2)}
-        ></div>
-        <div
-          className="blog"
-          ref={inputRef3}
-          style={{
-            marginLeft: 300,
-            width: 100,
-            height: 200,
-            background: "#333333",
-          }}
-          onClick={() => setposition(inputRef3)}
-        ></div>
-      </div>
+    <motion.div exit={{ opacity: 0 }}>
+      <div className="mainBlog">
+        <div className="intro">
+          <span className="centerText">
+            <h1>Blog posts</h1>
+            <h2>Filtra por categoría</h2>
+          </span>
+        </div>
 
-      <Box xPosition={postion} />
-    </>
+        <div className="blogGrid">
+          <Card color={"card_primaryColor"} />
+          <CardGrande />
+          <Card color={"card_secondaryColor"} />
+          <CardGrande />
+          <Card color={"card_primaryColor"} />
+          <Card color={"card_secondaryColor"} />
+          <Card color={"card_primaryColor"} />
+          <CardGrande />
+          <Card color={"card_secondaryColor"} />
+          <CardGrande />
+          <Card color={"card_primaryColor"} />
+          <Card color={"card_secondaryColor"} />
+        </div>
+
+        {/*<div className="blogPosts">
+        {postData &&
+          postData.map((post, index) => (
+            <Link to={"/blog/" + post.slug.current} key={post.slug.current}>
+              <article
+                className="blogCard"
+                style={{
+                  backgroundImage: `url('${post.mainImage.asset.url}')`,
+                }}
+              >
+                <span key={index}>
+                  <div className="cardTitle">
+                    <h3>{post.title}</h3>
+                  </div>
+                  {
+                    <img
+                      className="blogImgs"
+                      src={post.mainImage.asset.url}
+                      alt={post.mainImage.alt}
+                    />
+                  }
+                </span>
+              </article>
+            </Link>
+          ))}
+                </div>*/}
+      </div>
+    </motion.div>
   );
 };
 
