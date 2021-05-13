@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect, useLayoutEffect } from "react";
 import Triangle from "../Components/Triangle";
-import Logo from "../components/Logo";
+import Logo from "../Components/Logo";
 import { NavLink, useLocation } from "react-router-dom";
 
 const isActive = (onActive) => (match, location) => {

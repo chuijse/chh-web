@@ -9,7 +9,7 @@ const Teaching = () => {
   useEffect(() => {
     sanityClient
       .fetch(
-        `*[_type == "courses"]{
+        `*[_type == "courses"] | order(year desc) {
           title,
           slug,
           abstract,

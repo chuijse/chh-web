@@ -1,10 +1,9 @@
 import React, { cloneElement, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import sanityClient from "../client.js";
-import BlockContent from "@sanity/block-content-to-react";
 import imageUrlBuilder from "@sanity/image-url";
-import button from "../Components/Button";
 import Button from "../Components/Button";
+import PortableText from "../Components/PortableText";
 
 const builder = imageUrlBuilder(sanityClient);
 function urlFor(source) {
@@ -23,7 +22,7 @@ export default function OnePost() {
           slug,
           semester,
           year,
-          "colleaguesData":colleagues[]->{_id, name, link},
+          colleagues[]->{_id, name, link},
           "university": universities->name,
           mainImage{
             asset->{
@@ -36,7 +35,28 @@ export default function OnePost() {
                _id, 
                url
             },
-          body,
+            body[]{
+              _key,
+              _type,
+              children,
+              markDefs,
+              style,
+              caption,
+              photo,
+              videoUrl,
+              video1{
+                asset->,
+                caption
+              },
+              video2{
+                asset->,
+                caption
+              },
+              video3{
+                asset->,
+                caption
+              },	
+            },
         "name": author->name,
         "authorImage": author->image
        }`,
@@ -48,8 +68,7 @@ export default function OnePost() {
 
   if (!courseData) return <div>Loading...</div>;
 
-  console.log(courseData.ImageGalleryData);
-  console.log(courseData.mainImage);
+  console.log(courseData.body);
 
   //console.log(courseData.colleaguesData);
 
@@ -79,7 +98,7 @@ export default function OnePost() {
                     <Button name={names}></Button>
                   </div>
                 ))}*/}
-                {courseData.colleaguesData?.map((item, index) => (
+                {courseData.colleagues?.map((item, index) => (
                   <span key={index}>
                     <Button name={item.name} link={item.link}>
                       {" "}
@@ -97,10 +116,9 @@ export default function OnePost() {
           </div>
           <div className="info">
             <h4>Descrpición</h4>
-            <BlockContent
+            <PortableText
               blocks={courseData.body}
-              projectId={sanityClient.clientConfig.projectId}
-              dataset={sanityClient.clientConfig.dataset}
+              imageOptions={{ fit: "max" }}
             />
           </div>
         </div>
